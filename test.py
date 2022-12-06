@@ -34,6 +34,7 @@ if __name__=="__main__":
 
     # for img,heatmap,weight_mask,center_heatmap,center_weight_mask,offset_map,weight_map in coco_loader:
     #     print(img.shape)
+#
 
 
 
