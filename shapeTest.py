@@ -94,6 +94,6 @@ def person_embedding(c, p_mask, patch, max_p = 10):
     p = p_id * p_m                              #将person信息嵌入mask
     for i in range(1,max_p):                    #将同一batch的所有person的信息整合
         p[0] = p[0] + p[i]
-    return p[0],re_id                               #返回整合后的嵌入信息
+    return p[0],re_id                               #返回整合后的嵌入信息，一维person信息码
 
 
