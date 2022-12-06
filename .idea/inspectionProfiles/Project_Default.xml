@@ -1,0 +1,157 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="DuplicatedCode" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <Languages>
+        <language minSize="150" name="Python" />
+      </Languages>
+    </inspection_tool>
+    <inspection_tool class="PyChainedComparisonsInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoreConstantInTheMiddle" value="true" />
+    </inspection_tool>
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="65">
+            <item index="0" class="java.lang.String" itemvalue="scikit-image" />
+            <item index="1" class="java.lang.String" itemvalue="PySimpleGUI" />
+            <item index="2" class="java.lang.String" itemvalue="scipy" />
+            <item index="3" class="java.lang.String" itemvalue="opencv-python" />
+            <item index="4" class="java.lang.String" itemvalue="PyYAML" />
+            <item index="5" class="java.lang.String" itemvalue="dill" />
+            <item index="6" class="java.lang.String" itemvalue="torchvision" />
+            <item index="7" class="java.lang.String" itemvalue="dlib" />
+            <item index="8" class="java.lang.String" itemvalue="dominate" />
+            <item index="9" class="java.lang.String" itemvalue="easydict" />
+            <item index="10" class="java.lang.String" itemvalue="tensorboardX" />
+            <item index="11" class="java.lang.String" itemvalue="einops" />
+            <item index="12" class="java.lang.String" itemvalue="tensorflow" />
+            <item index="13" class="java.lang.String" itemvalue="visdom" />
+            <item index="14" class="java.lang.String" itemvalue="cv2" />
+            <item index="15" class="java.lang.String" itemvalue="tqdm" />
+            <item index="16" class="java.lang.String" itemvalue="torch" />
+            <item index="17" class="java.lang.String" itemvalue="mmcv" />
+            <item index="18" class="java.lang.String" itemvalue="shapely" />
+            <item index="19" class="java.lang.String" itemvalue="submitit" />
+            <item index="20" class="java.lang.String" itemvalue="detectron2" />
+            <item index="21" class="java.lang.String" itemvalue="libidn2" />
+            <item index="22" class="java.lang.String" itemvalue="xz" />
+            <item index="23" class="java.lang.String" itemvalue="libgcc-ng" />
+            <item index="24" class="java.lang.String" itemvalue="gnutls" />
+            <item index="25" class="java.lang.String" itemvalue="libffi" />
+            <item index="26" class="java.lang.String" itemvalue="libpng" />
+            <item index="27" class="java.lang.String" itemvalue="libuv" />
+            <item index="28" class="java.lang.String" itemvalue="cython" />
+            <item index="29" class="java.lang.String" itemvalue="openjpeg" />
+            <item index="30" class="java.lang.String" itemvalue="ld_impl_linux-64" />
+            <item index="31" class="java.lang.String" itemvalue="nettle" />
+            <item index="32" class="java.lang.String" itemvalue="gmp" />
+            <item index="33" class="java.lang.String" itemvalue="ncurses" />
+            <item index="34" class="java.lang.String" itemvalue="mkl" />
+            <item index="35" class="java.lang.String" itemvalue="zstd" />
+            <item index="36" class="java.lang.String" itemvalue="libwebp-base" />
+            <item index="37" class="java.lang.String" itemvalue="blas" />
+            <item index="38" class="java.lang.String" itemvalue="indexed-bzip2" />
+            <item index="39" class="java.lang.String" itemvalue="libtiff" />
+            <item index="40" class="java.lang.String" itemvalue="lcms2" />
+            <item index="41" class="java.lang.String" itemvalue="lz4-c" />
+            <item index="42" class="java.lang.String" itemvalue="pytorch" />
+            <item index="43" class="java.lang.String" itemvalue="jpeg" />
+            <item index="44" class="java.lang.String" itemvalue="ffmpeg" />
+            <item index="45" class="java.lang.String" itemvalue="readline" />
+            <item index="46" class="java.lang.String" itemvalue="openh264" />
+            <item index="47" class="java.lang.String" itemvalue="python" />
+            <item index="48" class="java.lang.String" itemvalue="sqlite" />
+            <item index="49" class="java.lang.String" itemvalue="libiconv" />
+            <item index="50" class="java.lang.String" itemvalue="intel-openmp" />
+            <item index="51" class="java.lang.String" itemvalue="tzdata" />
+            <item index="52" class="java.lang.String" itemvalue="libstdcxx-ng" />
+            <item index="53" class="java.lang.String" itemvalue="zlib" />
+            <item index="54" class="java.lang.String" itemvalue="libgomp" />
+            <item index="55" class="java.lang.String" itemvalue="libunistring" />
+            <item index="56" class="java.lang.String" itemvalue="ninja" />
+            <item index="57" class="java.lang.String" itemvalue="openssl" />
+            <item index="58" class="java.lang.String" itemvalue="tk" />
+            <item index="59" class="java.lang.String" itemvalue="charset-normalizer" />
+            <item index="60" class="java.lang.String" itemvalue="olefile" />
+            <item index="61" class="java.lang.String" itemvalue="freetype" />
+            <item index="62" class="java.lang.String" itemvalue="libtasn1" />
+            <item index="63" class="java.lang.String" itemvalue="pycocotools" />
+            <item index="64" class="java.lang.String" itemvalue="lame" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPep8Inspection" enabled="false" level="WEAK WARNING" enabled_by_default="false">
+      <option name="ignoredErrors">
+        <list>
+          <option value="W292" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPep8NamingInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="N802" />
+          <option value="N803" />
+          <option value="N806" />
+          <option value="N813" />
+          <option value="N812" />
+          <option value="N801" />
+          <option value="N814" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyTypeCheckerInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="false" level="WARNING" enabled_by_default="false">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="str.__setitem__" />
+          <option value="list.__getitem__" />
+          <option value="drawTree.plotTree.totalW" />
+          <option value="drawTree.plotTree.totalD" />
+          <option value="drawTree.createPlot.ax1" />
+          <option value="object.transform" />
+          <option value="tuple.plot_surface" />
+          <option value="tuple.scatter" />
+          <option value="tuple.set_xlabel" />
+          <option value="tuple.set_ylabel" />
+          <option value="tuple.*" />
+          <option value="object.score" />
+          <option value="bool.any" />
+          <option value="str.decode" />
+          <option value="bool.sum" />
+          <option value="list.index" />
+          <option value="list.decode" />
+          <option value="tensorflow.contrib" />
+          <option value="list.__xor__" />
+          <option value="sklearn.cluster._kmeans.MiniBatchKMeans.__getitem__" />
+          <option value="numpy.core._multiarray_umath.ndarray.append" />
+          <option value="dict.__setitem__" />
+          <option value="numpy.reshape" />
+          <option value="list.split" />
+          <option value="float.shape" />
+          <option value="float.cuda" />
+          <option value="float.size" />
+          <option value="bool.float" />
+          <option value="float.split" />
+          <option value="float.item" />
+          <option value="int.expand_as" />
+          <option value="int.__setitem__" />
+          <option value="int.expand" />
+          <option value="float.expand_as" />
+          <option value="int.cuda" />
+          <option value="float.view" />
+          <option value="float.expand" />
+          <option value="list.items" />
+          <option value="numpy.linspace" />
+          <option value="numpy.square" />
+          <option value="torch.cuda.FloatTensor" />
+          <option value="torch.cuda.ByteTensor" />
+          <option value="typing.ItemsView.__add__" />
+          <option value="bool.nonzero" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

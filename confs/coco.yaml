@@ -1,0 +1,162 @@
+CFG_NAME: 'pinet'
+AUTO_RESUME: True
+DATA_DIR: ''
+OUTPUT_DIR: runs
+PRINT_FREQ: 100
+WORKERS: 4
+VERBOSE: False
+DDP: False
+CUDNN:
+  BENCHMARK: True
+  DETERMINISTIC: False
+  ENABLED: True
+DATASET:
+  DATASET: coco
+  FLIP: 0.5
+  INPUT_SIZE: 640
+  OUTPUT_SIZE: 128
+  MAX_NUM_PEOPLE: 30
+  MAX_ROTATION: 30
+  MAX_SCALE: 1.5
+  SCALE_TYPE: 'short'
+  MAX_TRANSLATE: 40
+  MIN_SCALE: 0.75
+  NUM_JOINTS: 17
+  ROOT: '/home/featurize/data/COCO2017'
+  TEST: val2017
+  TRAIN: train2017
+  OFFSET_RADIUS: 2.0
+  DETKPT_SIGMA: 2.0
+  SIGMA: 2.0
+  BG_WEIGHT: 0.1
+  DET_TYPE: '3kpt'
+  DETKPT_NAME: [ 'head', 'body', 'foot' ]
+  DETKPT_IDXS: [ [ 0, 1, 2, 3, 4 ], [ 5,6, 11,12 ], [ 11, 12, 13, 14, 15, 16 ] ]
+REFINE:
+  USE_REFINE: True
+  MAX_PROPOSAL: 120
+  NUM_LAYERS: 2
+LOSS:
+  HEATMAP_LOSS_FACTOR: 1.0
+  OFFSET_LOSS_FACTOR: 0.03
+  REFINE_LOSS_FACTOR: 0.03
+TEST:
+  FLIP_TEST: True
+  OKS_SCORE: 0.7
+  OKS_SIGMAS: [ .26, .25, .25, .35, .35, .79, .79, .72, .72, .62,.62, 1.07, 1.07, .87, .87, .89, .89 ]
+  IMAGES_PER_GPU: 1
+  MODEL_FILE: ''
+  SCALE_FACTOR: [ 1 ]
+TRAIN:
+  BEGIN_EPOCH: 0
+  CHECKPOINT: ''
+  END_EPOCH: 200
+  GAMMA1: 0.99
+  GAMMA2: 0.0
+  IMAGES_PER_GPU: 20
+  LR: 0.001
+  LR_FACTOR: 0.1
+  LR_STEP: [ 90, 120 ]
+  MOMENTUM: 0.9
+  NESTEROV: False
+  OPTIMIZER: adam
+  RESUME: False
+  SHUFFLE: True
+  WD: 0.0001
+  BATCH_SIZE: 16
+MODEL:
+  INIT_WEIGHTS: True
+  NAME: 'PINet'
+  PRETRAINED: 'model/imagenet/hrnet_w32-36af842e.pth'
+  HRNET_BACKBONE:
+    NAME: 'hrnet32'
+    OUTPUT_DIM: 480
+    FINAL_CONV_KERNEL: 1
+    PRETRAINED_LAYERS: [ '*' ]
+    STEM_INPLANES: 64
+    STAGE2:
+      NUM_MODULES: 1
+      NUM_BRANCHES: 2
+      BLOCK: BASIC
+      NUM_BLOCKS:
+        - 4
+        - 4
+      NUM_CHANNELS:
+        - 32
+        - 64
+      FUSE_METHOD: SUM
+    STAGE3:
+      NUM_MODULES: 4
+      NUM_BRANCHES: 3
+      BLOCK: BASIC
+      NUM_BLOCKS:
+        - 4
+        - 4
+        - 4
+      NUM_CHANNELS:
+        - 32
+        - 64
+        - 128
+      FUSE_METHOD: SUM
+    STAGE4:
+      NUM_MODULES: 3
+      NUM_BRANCHES: 4
+      BLOCK: BASIC
+      NUM_BLOCKS:
+        - 4
+        - 4
+        - 4
+        - 4
+      NUM_CHANNELS:
+        - 32
+        - 64
+        - 128
+        - 256
+      FUSE_METHOD: SUM
+    DECONV:
+      NUM_DECONVS: 0
+      NUM_CHANNELS:
+        - 32
+      KERNEL_SIZE:
+        - 4
+      NUM_BASIC_BLOCKS: 0
+      CAT_OUTPUT:
+        - True
+  YOLO_BACKBONE:
+    NAME: YOLOv5
+    FROM: [ -1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,[-1,8],-1,[-1,6],-1,[-1,4],-1,[-1,16],-1,[-1,14],-1,[-1,12]]
+    MODULE: ['FOCUS','CONV','CONV','C3','CONV','C3','CONV','C3','CONV','C3','SPP','C3','TRANS','WATERFALL','TRANS','WATERFALL','TRANS','WATERFALL','CONV','WATERFALL','CONV','WATERFALL','CONV','WATERFALL']
+#    OUT_CHANNEL: [64,128,128,256,256,512,512,1024,1024,1024,1024,512,512,256,256,128,128,256,256,512,512,1024,1024]
+    OUT_CHANNEL: [32,64,64,64,128,128,256,256,512,512,512,512,256,256,128,128,64,64,128,128,256,256,512,512]
+    BLOCK_NUM: [ 1,1,1,3,1,3,1,3,1,3,1,3,1,1,1,1,1,1,1,1,1,1,1,1]
+    HEAD_LEN: 12
+  WATERFALL_FUSER:
+    NAME: waterfall fuser
+    DILATION_RATES:
+      - 1
+      - 6
+      - 12
+      - 18
+  DETECTOR:
+    NAME: detector
+    ANCHORS:
+      - [ 19,27,  44,40,  38,94 ]  # P3/8
+      - [ 96,68,  86,152,  180,137 ]  # P4/16
+      - [ 140,301,  303,264,  238,542 ]  # P5/32
+      - [ 436,615,  739,380,  925,792 ] # P6/64
+    IN_CHANNELS:
+      - 64
+      - 128
+      - 256
+      - 512
+  TRANSFORMER_1:
+    NAME: individual transformer
+    ENCODER_NUM: 2
+    DECODER_NUM: 1
+    IN_SIZE: 80
+    ENCODER:
+      IN_CHANNEL: 64
+      PATCH_SIZE: 4
+      N_HEAD: 4
+
+
